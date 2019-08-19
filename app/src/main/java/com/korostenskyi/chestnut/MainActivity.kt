@@ -1,4 +1,4 @@
-package com.chestnut
+package com.korostenskyi.chestnut
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

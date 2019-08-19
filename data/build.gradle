@@ -1,21 +1,15 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 28
-    flavorDimensions "default"
     defaultConfig {
-        applicationId "com.korostenskyi.chestnut"
         minSdkVersion 22
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
     buildTypes {
         debug {
@@ -29,25 +23,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    productFlavors {
-        all {}
-        develop {}
-        production {}
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':data')
     implementation project(':domain')
 
-    //Kotlin
-    implementation"org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    // Kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 
     // Android
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
-    implementation "androidx.core:core-ktx:$appCompatVersion"
-    implementation "androidx.constraintlayout:constraintlayout:$constraintVersion"
 
     // Test
     testImplementation "junit:junit:$jUnitVersion"
