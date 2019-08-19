@@ -42,12 +42,15 @@ dependencies {
     implementation project(':domain')
 
     //Kotlin
-    implementation"org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 
     // Android
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.core:core-ktx:$appCompatVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+    implementation "androidx.legacy:legacy-support-v4:$legacySupportVersion"
 
     // Test
     testImplementation "junit:junit:$jUnitVersion"
