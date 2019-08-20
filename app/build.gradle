@@ -30,7 +30,10 @@ android {
         }
     }
     productFlavors {
-        all {}
+        all {
+            buildConfigField "String", "TMDB_API_KEY", '"YOUR-API-KEY"'
+            buildConfigField "String", "TMDB_BASE_URL", '"https://api.themoviedb.org/3/"'
+        }
         develop {}
         production {}
     }
@@ -43,6 +46,7 @@ dependencies {
 
     //Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
 
     // Android
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
@@ -51,6 +55,9 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
     implementation "androidx.legacy:legacy-support-v4:$legacySupportVersion"
+
+    // Koin
+    implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
 
     // Test
     testImplementation "junit:junit:$jUnitVersion"

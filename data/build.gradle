@@ -39,6 +39,17 @@ dependencies {
     // Android
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
 
+    // Koin
+    implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+
+    // Gson
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    // Retrofit 2
+    implementation "com.squareup.retrofit2:retrofit:$retroftVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$gsonConverterVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$loggingInterceptorVersion"
+
     // Test
     testImplementation "junit:junit:$jUnitVersion"
     androidTestImplementation "androidx.test:runner:$testRunnerVersion"
