@@ -7,6 +7,12 @@ import retrofit2.http.Query
 
 interface ApiClient {
 
+    @GET("discover/movie")
+    suspend fun fetchMovieDiscover(
+        @Query("sort_by") sortBy: String,
+        @Query("api_key") apiKey: String
+    ): MoviePageResponse
+
     @GET("movie/{movie_id}/recommendations")
     suspend fun fetchMovieRecommendations(
         @Path("movie_id") movieId: Int,

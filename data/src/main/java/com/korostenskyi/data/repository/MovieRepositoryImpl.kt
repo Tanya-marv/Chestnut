@@ -7,6 +7,10 @@ import com.korostenskyi.domain.repository.MovieRepository
 
 class MovieRepositoryImpl(private val apiDataSource: MoviesApiDataSource): MovieRepository {
 
+    override suspend fun fetchMovieDiscover(): List<Movie> {
+        return apiDataSource.fetchMovieDiscover().map { it.toMovie() }
+    }
+
     override suspend fun fetchMovieRecommendations(movieId: Int): List<Movie> {
         return apiDataSource.fetchMovieRecommendations(movieId).map { it.toMovie() }
     }
