@@ -24,7 +24,7 @@ fun MovieResponse.toMovie() = Movie(
 
 fun MoviePageResponse.toMoviePage() = MoviePage(
     pageNumber = pageNumber,
-    movies = movies?.map { it.toMovie() },
+    movies = movies.map { it.toMovie() },
     totalMoviesAmount = totalMoviesAmount,
     totalPagesAmount = totalPagesAmount
 )

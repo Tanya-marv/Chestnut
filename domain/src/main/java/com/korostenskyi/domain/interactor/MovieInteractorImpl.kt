@@ -4,5 +4,7 @@ import com.korostenskyi.domain.repository.MovieRepository
 
 class MovieInteractorImpl(private val repository: MovieRepository): MovieInteractor {
 
+    override suspend fun fetchMovieDiscover() = repository.fetchMovieDiscover()
+
     override suspend fun fetchMovieRecommendations(movieId: Int) = repository.fetchMovieRecommendations(movieId)
 }

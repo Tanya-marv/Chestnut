@@ -3,12 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     flavorDimensions "default"
     defaultConfig {
         applicationId "com.korostenskyi.chestnut"
         minSdkVersion 22
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -16,6 +16,9 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
     buildTypes {
         debug {
@@ -31,7 +34,7 @@ android {
     }
     productFlavors {
         all {
-            buildConfigField "String", "TMDB_API_KEY", '"YOUR-API-KEY"'
+            buildConfigField "String", "TMDB_API_KEY", '"bae01cd7890e6b49a073dbaa93677b96"'
             buildConfigField "String", "TMDB_BASE_URL", '"https://api.themoviedb.org/3/"'
         }
         develop {}
@@ -58,6 +61,9 @@ dependencies {
 
     // Koin
     implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+
+    // Coil
+    implementation "io.coil-kt:coil:$coilVersion"
 
     // Test
     testImplementation "junit:junit:$jUnitVersion"

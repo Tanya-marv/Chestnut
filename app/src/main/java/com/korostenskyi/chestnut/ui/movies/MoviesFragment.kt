@@ -1,22 +1,21 @@
 package com.korostenskyi.chestnut.ui.movies
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.korostenskyi.chestnut.R
+import kotlinx.android.synthetic.main.fragment_movies.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MoviesFragment : Fragment() {
 
     private val viewModel: MoviesViewModel by viewModel()
     private val adapter by lazy {
-        MoviesAdapter(mutableListOf()) {
-            // TODO: Navigate to details screen
-        }
+        MoviesAdapter(mutableListOf()) { }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -26,17 +25,25 @@ class MoviesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpRecyclerView()
         bindUi()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel.fetchMovieRecommendations(550)
+        viewModel.fetchMovieDiscover()
     }
 
     private fun bindUi() {
         viewModel.moviesLiveData.observe(this, Observer { movies ->
-            Log.d("MoviesFragment", "$movies")
+            adapter.addMovieList(movies)
         })
+    }
+
+    private fun setUpRecyclerView() {
+        rvMovies.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            adapter = this@MoviesFragment.adapter
+        }
     }
 }

@@ -17,4 +17,10 @@ class MoviesViewModel(private val moviesInteractor: MovieInteractor): ViewModel(
             moviesLiveData.postValue(moviesInteractor.fetchMovieRecommendations(movieId))
         }
     }
+
+    fun fetchMovieDiscover() {
+        GlobalScope.launch(Dispatchers.IO) {
+            moviesLiveData.postValue(moviesInteractor.fetchMovieDiscover())
+        }
+    }
 }

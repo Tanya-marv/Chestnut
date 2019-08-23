@@ -5,4 +5,6 @@ import com.korostenskyi.data.model.MovieResponse
 interface MoviesApiDataSource {
 
     suspend fun fetchMovieRecommendations(movieId: Int): List<MovieResponse>
+
+    suspend fun fetchMovieDiscover(): List<MovieResponse>
 }
