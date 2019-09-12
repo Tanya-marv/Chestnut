@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Chestnut</string>
+    <string name="movie_poster">Movie Poster</string>
+
+    // Filter Backdrop
+    <string name="hint_text">Enter the movie title here</string>
+    <string name="items_selected">%d items(s)</string>
+
+    // Movies Screen
+    <string name="discover">Discover</string>
+
+    // Image views descriptions
+    <string name="filter_icon">Filter icon</string>
 </resources>

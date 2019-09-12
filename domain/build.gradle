@@ -7,6 +7,9 @@ dependencies {
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
 
+    // Koin
+    implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+
     // Test
     testImplementation "junit:junit:$jUnitVersion"
 }

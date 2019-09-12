@@ -3,12 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     flavorDimensions "default"
     defaultConfig {
         applicationId "com.korostenskyi.chestnut"
         minSdkVersion 22
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -16,6 +16,9 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
     buildTypes {
         debug {
@@ -30,7 +33,11 @@ android {
         }
     }
     productFlavors {
-        all {}
+        all {
+            buildConfigField "String", "TMDB_API_KEY", '"bae01cd7890e6b49a073dbaa93677b96"'
+            buildConfigField "String", "TMDB_BASE_URL", '"https://api.themoviedb.org/3/"'
+            buildConfigField "String", 'TMDB_POSTER_BASE_URL', '"https://image.tmdb.org/t/p/w500/"'
+        }
         develop {}
         production {}
     }
@@ -42,12 +49,22 @@ dependencies {
     implementation project(':domain')
 
     //Kotlin
-    implementation"org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
 
     // Android
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.core:core-ktx:$appCompatVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constraintVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+    implementation "androidx.legacy:legacy-support-v4:$legacySupportVersion"
+
+    // Koin
+    implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+
+    // Coil
+    implementation "io.coil-kt:coil:$coilVersion"
 
     // Test
     testImplementation "junit:junit:$jUnitVersion"
