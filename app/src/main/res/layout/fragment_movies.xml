@@ -77,8 +77,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/discover"
-            android:paddingTop="8dp"
-            android:paddingStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bottomSheetHeader" />
 
