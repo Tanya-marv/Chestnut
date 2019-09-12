@@ -34,8 +34,9 @@ android {
     }
     productFlavors {
         all {
-            buildConfigField "String", "TMDB_API_KEY", '"YOUR-API-KEY"'
+            buildConfigField "String", "TMDB_API_KEY", '"bae01cd7890e6b49a073dbaa93677b96"'
             buildConfigField "String", "TMDB_BASE_URL", '"https://api.themoviedb.org/3/"'
+            buildConfigField "String", 'TMDB_POSTER_BASE_URL', '"https://image.tmdb.org/t/p/w500/"'
         }
         develop {}
         production {}

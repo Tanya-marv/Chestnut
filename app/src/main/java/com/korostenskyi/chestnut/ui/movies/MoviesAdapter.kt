@@ -8,6 +8,7 @@ import coil.api.load
 import coil.transform.RoundedCornersTransformation
 import com.korostenskyi.chestnut.R
 import com.korostenskyi.domain.model.Movie
+import org.koin.*
 import kotlinx.android.synthetic.main.item_movie.view.*
 
 class MoviesAdapter(private val movies: MutableList<Movie>, private val seeMoreClickListener: ((movie: Movie) -> Unit)? = null): RecyclerView.Adapter<MoviesViewHolder>() {
