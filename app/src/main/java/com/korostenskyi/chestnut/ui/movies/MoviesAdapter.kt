@@ -4,11 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
-import coil.transform.RoundedCornersTransformation
+import com.bumptech.glide.Glide
 import com.korostenskyi.chestnut.R
 import com.korostenskyi.domain.model.Movie
-import org.koin.*
 import kotlinx.android.synthetic.main.item_movie.view.*
 
 class MoviesAdapter(private val movies: MutableList<Movie>, private val seeMoreClickListener: ((movie: Movie) -> Unit)? = null): RecyclerView.Adapter<MoviesViewHolder>() {
@@ -33,11 +31,11 @@ class MoviesViewHolder(private val view: View, private val seeMoreClickListener:
 
     fun bind(movie: Movie) {
         view.apply {
-            ivMoviePoster.load("$POSTER_BASE_URL${movie.posterPath}") {
-                placeholder(R.drawable.ic_launcher_background)
-                transformations(RoundedCornersTransformation(20f))
-                crossfade(true)
-            }
+            Glide.with(this)
+                .load("$POSTER_BASE_URL${movie.posterPath}")
+                .fitCenter()
+                .placeholder(R.drawable.ic_launcher_background)
+                .into(ivMoviePoster)
             setOnClickListener { seeMoreClickListener?.invoke(movie) }
         }
     }

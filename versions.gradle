@@ -9,7 +9,7 @@ ext {
 
     koinVersion = '2.0.1'
 
-    coilVersion = '0.6.1'
+    glideVersion = '4.10.0'
 
     gsonVersion = '2.8.5'
     retroftVersion = '2.6.1'
